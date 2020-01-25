@@ -1,0 +1,72 @@
+        m_isrun = true;
+        sol::bytecode target;
+        //
+        try
+        {
+                    sol::state luatest;
+                    luatest.set_exception_handler(&Lua::except_handler);
+                    sol::load_result lcode = luatest.load(s);
+                    if (!lcode.valid())
+                    {
+                        sol::error err = lcode;
+                        sol::load_status status = lcode.status();
+                        std::cout << err.what() << " : " << sol::to_string(status) << std::endl;
+                        return;
+                    }
+                    sol::protected_function script = lcode;
+                    target = script.dump();
+        }
+        catch (...)
+        {
+            m_isrun = false;
+            std::cout << "exception : 1" << std::endl;
+            return;
+        }
+        //
+        std::thread thmp
+        {
+            [&]()
+            {
+                try
+                {
+                    sol::state luaexec;
+                    luaexec.set_exception_handler(&Lua::except_handler);
+                    luaexec.open_libraries(sol::lib::base, sol::lib::math);
+
+                    auto result = luaexec.safe_script(target.as_string_view(), sol::script_pass_on_error);
+                    if (!result.valid())
+                    {
+                        sol::error err = result;
+                        sol::call_status status = result.status();
+                        std::cout << err.what() << " : " << sol::to_string(status) << std::endl;
+                        return;
+                    }
+                    sol::function fmain = luaexec["main"];
+
+                    while (m_isrun.load())
+                    {
+                        m_return = fmain.call<uint32_t>(m_state);
+                        std::cout << "m_return: " << m_return.load() << std::endl;
+
+                        auto t_end = (std::chrono::high_resolution_clock::now() + std::chrono::milliseconds(500));
+                        while (std::chrono::high_resolution_clock::now() < t_end)
+                        {
+                            if (!m_isrun.load())
+                                return;
+                            std::this_thread::yield();
+                            std::this_thread::sleep_for(std::chrono::milliseconds(15));
+                        }
+                    }
+                }
+                catch (...)
+                {
+                    m_isrun = false;
+                    std::cout << "exception : " << std::endl;
+                }
+                m_isrun = false;
+            }
+        };
+
+[sol3] An error occurred and panic has been invoked:
+stack index -1, expected number, received string:
+not a numeric type that fits exactly an integer (has significant decimals)
