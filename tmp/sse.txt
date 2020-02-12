@@ -14,3 +14,38 @@ aaaaaaaa
 	}
 
 bbbbbbbb
+
+
+
+
+
+#include <stdio.h>
+
+
+
+
+template<int SHIFT>
+bool boolRegVal(uint16_t val) {
+   return val & (1 << SHIFT);
+}
+
+int main(int argc, char *argv[])
+{
+	
+	uint32_t x = 0x0fffffff; // 0, 4, 8, 12, 16, 20, 24, 28 == 0
+	/*
+	printf("val: %u\n", boolRegVal<1>(x));
+		printf("val: %u\n", boolRegVal<2>(x));
+			printf("val: %u\n", boolRegVal<3>(x));
+				printf("val: %u\n", boolRegVal<4>(x));
+					printf("val: %u\n", boolRegVal<5>(x));
+						printf("val: %u\n", boolRegVal<6>(x));
+							printf("val: %u\n", boolRegVal<7>(x));
+								printf("val: %u\n", boolRegVal<8>(x));
+								*/
+								
+								for (uint32_t i =0; i < 33; i++)
+									printf("val x: %u (%d)\n", ((x >> i) & 0x0f) ? true : false, i);
+	
+}
+
