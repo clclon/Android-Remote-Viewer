@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ImageLite library build" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="DebugDll64">
+				<Option output="../../lib/ImageLite64d" imp_lib="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).a" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).def" prefix_auto="1" extension_auto="1" />
+				<Option object_output="../../obj/DebugImageLite/Dll/64/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-m64" />
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+				</Compiler>
+			</Target>
+			<Target title="ReleaseDll64">
+				<Option output="../../lib/ImageLite64r" imp_lib="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).a" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).def" prefix_auto="1" extension_auto="1" />
+				<Option object_output="../../obj/ReleaseImageLite/Dll/64/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-m64" />
+					<Add option="-Ofast" />
+					<Add option="-ffunction-sections" />
+					<Add option="-Wl,--strip-all" />
+					<Add option="-D_RELEASE" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="DebugStatic64">
+				<Option output="../../lib/ImageLite64ds" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../../obj/DebugImageLite/Static/64/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-m64" />
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+				</Compiler>
+			</Target>
+			<Target title="ReleaseStatic64">
+				<Option output="../../lib/ImageLite64rs" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../../obj/ReleaseImageLite/Static/64/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-m64" />
+					<Add option="-Ofast" />
+					<Add option="-ffunction-sections" />
+					<Add option="-Wl,--strip-all" />
+					<Add option="-D_RELEASE" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All64" targets="DebugDll64;ReleaseDll64;DebugStatic64;ReleaseStatic64;" />
+			<Add alias="Debug64" targets="DebugDll64;DebugStatic64;" />
+			<Add alias="Release64" targets="ReleaseDll64;ReleaseStatic64;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-std=c++17" />
+			<Add option="-fexceptions" />
+			<Add option="-fopenmp" />
+			<Add option="-funroll-loops" />
+			<Add option="-Wextra" />
+			<Add option="-Wall" />
+			<Add option="-Wno-unknown-pragmas" />
+			<Add option="-pedantic" />
+			<Add directory="./" />
+			<Add directory="../" />
+			<Add directory="../Helper" />
+		</Compiler>
+		<Linker>
+			<Add option="-lgomp" />
+		</Linker>
+		<Unit filename="../Helper/HelperIntrin.cpp" />
+		<Unit filename="../Helper/HelperIntrin.h" />
+		<Unit filename="../lodepng.h" />
+		<Unit filename="../lodepng.cpp">
+			<Option compiler="gcc" use="1" buildCommand="$compiler $options -ftree-vectorize -fopt-info-vec-optimized -fopt-info-loop-optimized $includes -c $file -o $object\n" />
+		</Unit>
+		<Unit filename="../toojpeg.h" />
+		<Unit filename="../toojpeg.cpp">
+			<Option compiler="gcc" use="1" buildCommand="$compiler $options -ftree-vectorize -fopt-info-vec-optimized -fopt-info-loop-optimized $includes -c $file -o $object\n" />
+		</Unit>
+		<Unit filename="ImageLite.h" />
+		<Unit filename="ImageLite.Geometry.h" />
+		<Unit filename="ImageLite.Data.h" />
+		<Unit filename="ImageLite.LuaSol3.h" />
+		<Unit filename="ImageLite.Error.h" />
+		<Unit filename="ImageLite.Error.cpp" />
+		<Unit filename="ImageLite.RGBbuffer.h" />
+		<Unit filename="ImageLite.RGBbuffer.cpp" />
+		<Unit filename="ImageLite.Formater.h" />
+		<Unit filename="ImageLite.Formater.cpp" />
+		<Unit filename="ImageLite.Formater.internal.h" />
+		<Unit filename="ImageLite.Formater.icompare.cpp" />
+		<Unit filename="ImageLite.Formater.icompare.neon.cpp" />
+		<Unit filename="ImageLite.Formater.icompare.avx2.cpp" />
+		<Unit filename="ImageLite.Formater.iconverter.cpp" />
+		<Unit filename="ImageLite.Formater.iconverter.native.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

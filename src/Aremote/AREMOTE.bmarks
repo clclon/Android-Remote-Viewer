@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<BrowseTracker_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="App.Config.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="913" topLine="25" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="App.Cmdl.cpp" open="1" top="0" tabpos="0">
+		<Cursor position="3883" topLine="91" />
+		<BrowseMarks positions="3820" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="extern\Helper\HelperLog.h" open="0" top="0" tabpos="0">
+		<Cursor position="7480" topLine="219" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="ARemote.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="16363" topLine="449" />
+		<BrowseMarks positions="577,846,2959,7402,7808,10669" />
+		<Book_Marks positions="1353,1685,7318" />
+	</File>
+	<File name="App.Config.h" open="0" top="0" tabpos="0">
+		<Cursor position="813" topLine="0" />
+		<BrowseMarks positions="813" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="Net.HTTPServer.h" open="0" top="0" tabpos="6">
+		<Cursor position="1166" topLine="17" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="App.Cmdl.h" open="0" top="0" tabpos="0">
+		<Cursor position="587" topLine="0" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="Event.Input.Macro.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="14356" topLine="276" />
+		<BrowseMarks positions="7739,8813" />
+		<Book_Marks positions="117" />
+	</File>
+	<File name="Event.Input.h" open="1" top="0" tabpos="2">
+		<Cursor position="4202" topLine="104" />
+		<BrowseMarks positions="750,1621,1668,1939" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="Event.Input.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="3751" topLine="102" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="Net.HTTPServer.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="0" topLine="227" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
+	</File>
+</BrowseTracker_layout_file>

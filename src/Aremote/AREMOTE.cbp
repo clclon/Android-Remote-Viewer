@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="aremote" />
+		<Option makefile_is_custom="1" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option check_files="0" />
+		<Build>
+			<Target title="Debug">
+				<Option output="RunRemote.cmd" prefix_auto="0" extension_auto="0" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-D_DEBUG=1" />
+				</Compiler>
+				<Environment>
+					<Variable name="ANALIZE" value="1" />
+					<Variable name="ELFCLEANER" value="1" />
+				</Environment>
+				<MakeCommands>
+					<Build command='E:\__BuildSource\__LIB__\64\android-ndk-r21\prebuilt\windows-x86_64\bin\make.exe -f $makefile $target SC_BIN_PATH=&quot;E:/__Bin64/CodeBlocks/share/codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;E:/__BuildSource/__LIB__/64/android-ndk-r21/&quot; SC_AOSP_DIR=&quot;E:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<CompileFile command='E:\__BuildSource\__LIB__\64\android-ndk-r21\prebuilt\windows-x86_64\bin\make.exe -f $makefile $file SC_BIN_PATH=&quot;E:/__Bin64/CodeBlocks/share/codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;E:/__BuildSource/__LIB__/64/android-ndk-r21/&quot; SC_AOSP_DIR=&quot;E:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<Clean command='E:\__BuildSource\__LIB__\64\android-ndk-r21\prebuilt\windows-x86_64\bin\make.exe -f $makefile clean$target SC_BIN_PATH=&quot;E:/__Bin64/CodeBlocks/share/codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;E:/__BuildSource/__LIB__/64/android-ndk-r21/&quot; SC_AOSP_DIR=&quot;E:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<DistClean command='E:\__BuildSource\__LIB__\64\android-ndk-r21\prebuilt\windows-x86_64\bin\make.exe -f $makefile distclean$target SC_BIN_PATH=&quot;E:/__Bin64/CodeBlocks/share/codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;E:/__BuildSource/__LIB__/64/android-ndk-r21/&quot; SC_AOSP_DIR=&quot;E:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<AskRebuildNeeded command='E:\__BuildSource\__LIB__\64\android-ndk-r21\prebuilt\windows-x86_64\bin\make.exe -q -f $makefile $target SC_BIN_PATH=&quot;E:/__Bin64/CodeBlocks/share/codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;E:/__BuildSource/__LIB__/64/android-ndk-r21/&quot; SC_AOSP_DIR=&quot;E:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<SilentBuild command='E:\__BuildSource\__LIB__\64\android-ndk-r21\prebuilt\windows-x86_64\bin\make.exe -f $makefile $target SC_BIN_PATH=&quot;E:/__Bin64/CodeBlocks/share/codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;E:/__BuildSource/__LIB__/64/android-ndk-r21/&quot; SC_AOSP_DIR=&quot;E:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot; &amp;gt; $(CMD_NULL)' />
+				</MakeCommands>
+			</Target>
+			<Target title="Release">
+				<Option output="RunRemote.cmd" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="" />
+				<Option type="5" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-Wl,--strip-all" />
+					<Add option="-Wl,--gc-sections" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+				<Environment>
+					<Variable name="ANALIZE" value="0" />
+					<Variable name="ELFCLEANER" value="1" />
+				</Environment>
+				<MakeCommands>
+					<Build command='E:\__BuildSource\__LIB__\64\android-ndk-r21\prebuilt\windows-x86_64\bin\make.exe -f $makefile $target SC_BIN_PATH=&quot;E:/__Bin64/CodeBlocks/share/codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;E:/__BuildSource/__LIB__/64/android-ndk-r21/&quot; SC_AOSP_DIR=&quot;E:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<CompileFile command='E:\__BuildSource\__LIB__\64\android-ndk-r21\prebuilt\windows-x86_64\bin\make.exe -f $makefile $file SC_BIN_PATH=&quot;E:/__Bin64/CodeBlocks/share/codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;E:/__BuildSource/__LIB__/64/android-ndk-r21/&quot; SC_AOSP_DIR=&quot;E:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<Clean command='E:\__BuildSource\__LIB__\64\android-ndk-r21\prebuilt\windows-x86_64\bin\make.exe -f $makefile clean$target SC_BIN_PATH=&quot;E:/__Bin64/CodeBlocks/share/codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;E:/__BuildSource/__LIB__/64/android-ndk-r21/&quot; SC_AOSP_DIR=&quot;E:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<DistClean command='E:\__BuildSource\__LIB__\64\android-ndk-r21\prebuilt\windows-x86_64\bin\make.exe -f $makefile distclean$target SC_BIN_PATH=&quot;E:/__Bin64/CodeBlocks/share/codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;E:/__BuildSource/__LIB__/64/android-ndk-r21/&quot; SC_AOSP_DIR=&quot;E:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<AskRebuildNeeded command='E:\__BuildSource\__LIB__\64\android-ndk-r21\prebuilt\windows-x86_64\bin\make.exe -q -f $makefile $target SC_BIN_PATH=&quot;E:/__Bin64/CodeBlocks/share/codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;E:/__BuildSource/__LIB__/64/android-ndk-r21/&quot; SC_AOSP_DIR=&quot;E:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<SilentBuild command='E:\__BuildSource\__LIB__\64\android-ndk-r21\prebuilt\windows-x86_64\bin\make.exe -f $makefile $target SC_BIN_PATH=&quot;E:/__Bin64/CodeBlocks/share/codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;E:/__BuildSource/__LIB__/64/android-ndk-r21/&quot; SC_AOSP_DIR=&quot;E:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot; &amp;gt; $(CMD_NULL)' />
+				</MakeCommands>
+			</Target>
+			<Target title="Docs">
+				<Option type="4" />
+				<ExtraCommands>
+					<Add after='cmd.exe /C ..\..\docs\doxygen\buildhelp.cmd ${PROJECT_DIR}..\..\docs\doxygen' />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++17" />
+			<Add option="-fexceptions" />
+			<Add option="-frtti" />
+			<Add option="-funroll-loops" />
+			<Add option="-ffunction-sections" />
+			<Add option="-fopenmp" />
+			<Add option="-Wall" />
+			<Add option="-Wunused" />
+			<Add option="-Wunreachable-code" />
+			<Add option="-Wno-unknown-pragmas" />
+			<Add option="-Wl,--export-dynamic" />
+			<Add option="-Wl,--version-script,fakelib/vs-libsigchain.txt" />
+			<Add option="-Ifakelib/include" />
+			<Add option="-Ifakelib/include/ndk" />
+			<Add option="-I../../../../__LIB__/android-aosp-header/android-6.0.0_r1/system/core/include" />
+			<Add option="-I../../../../__LIB__/android-aosp-header/android-6.0.0_r1/frameworks/base/include" />
+			<Add option="-I../../../../__LIB__/android-aosp-header/android-6.0.0_r1/frameworks/native/include" />
+			<Add option="-I../../../../__LIB__/android-aosp-header/android-6.0.0_r1/hardware/libhardware/include" />
+			<Add option="-I../../../../__LIB__/ASIO/include" />
+			<Add option="-I../../../../__LIB__/ASIO/include/asio" />
+			<Add option="-I../../../../__LIB__/LUA/include" />
+			<Add option="-I../../../../__LIB__/sol2/single/include" />
+			<Add option="-I./" />
+			<Add option="-Iextern" />
+			<Add option="-Iextern/Lua" />
+			<Add option="-Iextern/Helper" />
+			<Add option="-Iextern/ImageLite" />
+			<Add option="-D__ANDROID_VER__=$(APP_BUILD_VERSION)" />
+		</Compiler>
+		<Linker>
+			<Add option="-static-openmp" />
+			<Add option="-L./fakelib/lib/$(APP_PLATFORM)/$(TARGET_ARCH_ABI)" />
+			<Add option="-L../../../../__LIB__/LUA/lib/$(APP_PLATFORM)/$(TARGET_ARCH_ABI)" />
+			<Add option="-lutils" />
+			<Add option="-lgui" />
+			<Add option="-lui" />
+			<Add option="-lbinder" />
+			<Add option="-lomp" />
+			<Add option="-llua535sa" />
+		</Linker>
+		<ExtraCommands>
+			<Add before="E:\__Bin64\msys\usr\bin\gzip.exe -9 -k -n -f web/pack.html" />
+			<Mode after="always" />
+		</ExtraCommands>
+		<Unit filename="ARemote.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="ARemote.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="App.Cmdl.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="App.Cmdl.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="App.Config.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="App.Config.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="App.Error.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="App.Error.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="App.IsRunning.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="App.IsRunning.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Event.Display.API.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Event.Display.Debug.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Event.Display.Image.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Event.Display.Stream.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Event.Display.StreamRawData.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Event.Display.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Event.Display.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Event.Input.Key.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Event.Input.Macro.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Event.Input.Swipe.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Event.Input.Tap.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Event.Input.Text.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Event.Input.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Event.Input.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Net.HTTPServer.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Net.HTTPServer.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Net.IP.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Net.IP.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Helper/HelperArray2D.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Helper/HelperClock.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Helper/HelperIntrin.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Helper/HelperIntrin.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Helper/HelperIntrin/NDK/cpu-features.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Helper/HelperIntrin/NDK/cpu-features.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Helper/HelperLog.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Helper/HelperLog.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Helper/HelperMap.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Helper/HelperXml.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Helper/HelperXmlParse.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Helper/HelperXmlParse.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.Data.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.Error.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.Error.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.Formater.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.Formater.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.Formater.icompare.avx2.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.Formater.icompare.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.Formater.icompare.neon.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.Formater.iconverter.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.Formater.iconverter.native.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.Formater.internal.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.Geometry.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.LuaSol3.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.LuaSol3.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.RGBbuffer.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.RGBbuffer.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/ImageLite/ImageLite.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Lua/Lua.Engine.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Lua/Lua.Engine.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Lua/Lua.Error.Items.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Lua/Lua.Error.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Lua/Lua.Error.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Lua/Lua.Method.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Lua/Lua.Method.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/Lua/Lua.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/argh.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/lodepng.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/lodepng.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/lz4/lz4.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/lz4/lz4.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/sws/server_http.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/toojpeg.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/toojpeg.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/xml/tinyxml2.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/xml/tinyxml2.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/xml/tixml2cx.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="extern/xml/tixml2ex.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="version.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger>
+				<search_path add="obj/local/armeabi-v7a" />
+				<search_path add="obj/local/arm64-v8a" />
+				<search_path add="obj/local/x86" />
+				<search_path add="obj/local/x86_64" />
+				<remote_debugging target="Debug">
+					<options conn_type="0" serial_baud="115200" ip_address="127.0.0.1" ip_port="59999" additional_cmds_before="set solib-search-path obj/local/armeabi-v7a&#x0A;file obj/local/armeabi-v7a/ainput&#x0A;" />
+				</remote_debugging>
+			</debugger>
+			<AutoVersioning>
+				<Scheme minor_max="999" build_max="999" rev_max="999" rev_rand_max="999" build_times_to_increment_minor="100" />
+				<Settings autoincrement="1" date_declarations="1" use_define="1" update_manifest="0" do_auto_increment="1" ask_to_increment="0" language="C" svn="0" svn_directory="" header_path="version.h" />
+				<Changes_Log show_changes_editor="0" app_title="released version %M.%m.%b of %p" changeslog_path="ChangesLog.txt" />
+				<Code header_guard="VERSION_H" namespace="AutoVersion" prefix="AINPUT" />
+			</AutoVersioning>
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project project_number="0.0.4" output_directory="..\..\docs\doxygen" use_auto_version="1" />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_alpha_index alphabetical_index="0" />
+				<doxyfile_output html_help="1" />
+				<doxyfile_preprocessor enable_preprocessing="0" />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

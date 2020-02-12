@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="inputvirtualdevice" />
+		<Option makefile_is_custom="1" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="RunRemote.cmd" prefix_auto="1" extension_auto="0" />
+				<Option working_dir="" />
+				<Option type="5" />
+				<Option compiler="gcc" />
+				<MakeCommands>
+					<Build command='C:\__BuildSource\__LIB__\android-ndk-r20b/prebuilt/windows/bin/make.exe -f $makefile $target SC_BIN_PATH=&quot;C:\__Bin\CodeBlocks\share\codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;C:\__BuildSource\__LIB__\android-ndk-r20b&quot; SC_AOSP_DIR=&quot;C:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<CompileFile command='C:\__BuildSource\__LIB__\android-ndk-r20b/prebuilt/windows/bin/make.exe -f $makefile $file SC_BIN_PATH=&quot;C:\__Bin\CodeBlocks\share\codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;C:\__BuildSource\__LIB__\android-ndk-r20b&quot; SC_AOSP_DIR=&quot;C:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<Clean command='C:\__BuildSource\__LIB__\android-ndk-r20b/prebuilt/windows/bin/make.exe -f $makefile clean$target SC_BIN_PATH=&quot;C:\__Bin\CodeBlocks\share\codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;C:\__BuildSource\__LIB__\android-ndk-r20b&quot; SC_AOSP_DIR=&quot;C:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<DistClean command='C:\__BuildSource\__LIB__\android-ndk-r20b/prebuilt/windows/bin/make.exe -f $makefile distclean$target SC_BIN_PATH=&quot;C:\__Bin\CodeBlocks\share\codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;C:\__BuildSource\__LIB__\android-ndk-r20b&quot; SC_AOSP_DIR=&quot;C:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<AskRebuildNeeded command='C:\__BuildSource\__LIB__\android-ndk-r20b/prebuilt/windows/bin/make.exe -q -f $makefile $target SC_BIN_PATH=&quot;C:\__Bin\CodeBlocks\share\codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;C:\__BuildSource\__LIB__\android-ndk-r20b&quot; SC_AOSP_DIR=&quot;C:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<SilentBuild command='C:\__BuildSource\__LIB__\android-ndk-r20b/prebuilt/windows/bin/make.exe -f $makefile $target SC_BIN_PATH=&quot;C:\__Bin\CodeBlocks\share\codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;C:\__BuildSource\__LIB__\android-ndk-r20b&quot; SC_AOSP_DIR=&quot;C:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot; &amp;gt; $(CMD_NULL)' />
+				</MakeCommands>
+			</Target>
+			<Target title="Release">
+				<Option output="RunRemote.cmd" prefix_auto="1" extension_auto="0" />
+				<Option working_dir="" />
+				<Option type="5" />
+				<Option compiler="gcc" />
+				<MakeCommands>
+					<Build command='C:\__BuildSource\__LIB__\android-ndk-r20b/prebuilt/windows/bin/make.exe -f $makefile $target SC_BIN_PATH=&quot;C:\__Bin\CodeBlocks\share\codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;C:\__BuildSource\__LIB__\android-ndk-r20b&quot; SC_AOSP_DIR=&quot;C:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<CompileFile command='C:\__BuildSource\__LIB__\android-ndk-r20b/prebuilt/windows/bin/make.exe -f $makefile $file SC_BIN_PATH=&quot;C:\__Bin\CodeBlocks\share\codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;C:\__BuildSource\__LIB__\android-ndk-r20b&quot; SC_AOSP_DIR=&quot;C:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<Clean command='C:\__BuildSource\__LIB__\android-ndk-r20b/prebuilt/windows/bin/make.exe -f $makefile clean$target SC_BIN_PATH=&quot;C:\__Bin\CodeBlocks\share\codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;C:\__BuildSource\__LIB__\android-ndk-r20b&quot; SC_AOSP_DIR=&quot;C:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<DistClean command='C:\__BuildSource\__LIB__\android-ndk-r20b/prebuilt/windows/bin/make.exe -f $makefile distclean$target SC_BIN_PATH=&quot;C:\__Bin\CodeBlocks\share\codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;C:\__BuildSource\__LIB__\android-ndk-r20b&quot; SC_AOSP_DIR=&quot;C:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<AskRebuildNeeded command='C:\__BuildSource\__LIB__\android-ndk-r20b/prebuilt/windows/bin/make.exe -q -f $makefile $target SC_BIN_PATH=&quot;C:\__Bin\CodeBlocks\share\codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;C:\__BuildSource\__LIB__\android-ndk-r20b&quot; SC_AOSP_DIR=&quot;C:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot;' />
+					<SilentBuild command='C:\__BuildSource\__LIB__\android-ndk-r20b/prebuilt/windows/bin/make.exe -f $makefile $target SC_BIN_PATH=&quot;C:\__Bin\CodeBlocks\share\codeblocks/templates/wizard/ndk_android&quot; SC_NDK_API=&quot;android-21&quot; SC_NDK_ABI=&quot;all&quot; SC_NDK_DIR=&quot;C:\__BuildSource\__LIB__\android-ndk-r20b&quot; SC_AOSP_DIR=&quot;C:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1&quot; &amp;gt; $(CMD_NULL)' />
+				</MakeCommands>
+			</Target>
+			<Environment>
+				<Variable name="AOSP_DIR" value="C:\__BuildSource\__LIB__\android-aosp-header\android-6.0.0_r1" />
+				<Variable name="NDK_ABI" value="armeabi-v7a" />
+				<Variable name="NDK_API" value="android-21" />
+				<Variable name="NDK_DIR" value="C:\__BuildSource\__LIB__\android-ndk-r20-beta2" />
+				<Variable name="UTIL_DIR" value="C:\__Bin\CodeBlocks\share\codeblocks\templates\wizard\ndk_android\exec" />
+			</Environment>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++17" />
+			<Add option="-Wall" />
+			<Add option="-Wno-unknown-pragmas" />
+			<Add option="-frtti" />
+			<Add option="-fexceptions" />
+			<Add option='-D__ANDROID_API_PLATFORM__=&quot;$(TARGET_PLATFORM)&quot;' />
+			<Add option="-D_BUILD_SINGLE=1" />
+			<Add option="-IC:/__BuildSource/__LIB__/android-aosp-header/android-6.0.0_r1/system/core/include" />
+			<Add option="-IC:/__BuildSource/__LIB__/android-aosp-header/android-6.0.0_r1/frameworks/base/include" />
+			<Add option="-IC:/__BuildSource/__LIB__/android-aosp-header/android-6.0.0_r1/frameworks/native/include" />
+			<Add option="-IC:/__BuildSource/__LIB__/android-aosp-header/android-6.0.0_r1/hardware/libhardware/include" />
+			<Add option="-IC:/__BuildSource/__LIB__/ASIO/include" />
+			<Add option="-IC:/__BuildSource/__LIB__/ASIO/include/asio" />
+			<Add option="-I../../sws" />
+			<Add option="-I../../.." />
+			<Add option="-D__ANDROID_VER__=$(APP_BUILD_VERSION)" />
+		</Compiler>
+		<Linker>
+			<Add option="-v" />
+			<Add option="-L../../../fakelib/libs/$(TARGET_ARCH_ABI)" />
+			<Add option="-lutils" />
+			<Add option="-lbinder" />
+		</Linker>
+		<Unit filename="main.cpp" />
+		<Unit filename="main.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

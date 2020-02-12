@@ -1,0 +1,205 @@
+	body {
+	  font-family: "Segoe UI", "Helvetica Neue", "Calibri Light", sans-serif;
+	  -webkit-font-smoothing: antialiased;
+	  -moz-osx-font-smoothing: grayscale;
+	  letter-spacing: 0.02em;
+	  touch-action: manipulation;
+	}
+	video {
+	  width: 100%;
+	  height: auto;
+	  cursor: pointer;
+	}
+	.main {
+	  width:  100%;
+	  height: 100%;
+	  position: relative;
+	}
+	.lctrl {
+	  width: 90px;
+	  height: auto;
+	  position: absolute;
+	  margin-top: 5px;
+	}
+	.rctrl {
+	  margin-left: 70px;
+	  height: auto;
+	}
+	.errbox {
+	  height: auto;
+	  max-width: 640px;
+	  padding: 5px 25px 0px 30px;
+	  color: #fff;
+	  font-weight: bold;
+	  display: block;
+	  position: absolute;
+	}
+	.stream {
+	  height: auto;
+	  min-width: 640px;
+	  min-height: 400px;
+	  position: fixed;
+	  background-color: #97c024;
+	  border-width: 2px;
+	  border-style: solid;
+	  border-color: #0d0c0c;
+	  border-radius: 7px;
+	  -moz-border-radius: 7px;
+	  -webkit-border-radius: 7px;
+	}
+	#mplayer {
+	  outline: none;
+	}
+
+ul#css3menu0,ul#css3menu0 ul{
+	margin:0;list-style:none;padding:0;background-color:#424542;border-width:2px;border-style:solid;border-color:#FFF;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px;}
+ul#css3menu0 ul{
+	display:none;position:absolute;left:100%;top:0;-moz-box-shadow:3.5px 3.5px 5px #000000;-webkit-box-shadow:3.5px 3.5px 5px #000000;box-shadow:3.5px 3.5px 5px #000000;border-radius:7px;-moz-border-radius:7px;-webkit-border-radius:7px;padding:0 3px 3px;}
+ul#css3menu0 li:hover>*{
+	display:block;}
+ul#css3menu0 li{
+	position:relative;display:block;white-space:nowrap;font-size:0;}
+ul#css3menu0 li:hover{
+	z-index:1;}
+ul#css3menu0{
+	font-size:0;z-index:999;position:relative;display:block;float:left;padding:0 3px 3px;}
+ul#css3menu0>li{
+	margin:1px 0 0;}
+ul#css3menu0 a:active, ul#css3menu0 a:focus{
+	outline-style:none;}
+ul#css3menu0 a{
+	display:block;vertical-align:middle;text-align:left;text-decoration:none;font:10px Trebuchet MS;color:#FFF;cursor:pointer;padding:10px;background-color:#424542;background-image:none;background-repeat:repeat;border-width:1px 0 0 0;border-style:solid;border-color:#424542;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;}
+ul#css3menu0 ul li{
+	float:none;margin:3px 0 0;}
+ul#css3menu0 ul a{
+	text-align:left;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;font:bold 14px Trebuchet MS;color:#FFF;text-decoration:none;}
+ul#css3menu0 li:hover>a,ul#css3menu0 li a.pressed{
+	background-color:#ffa202;border-color:#424542;border-style:solid;color:#FFF;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABkCAYAAABHLFpgAAAAAXNSR0IArs4c6QAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oJGA8fEDx90S8AAABXSURBVBjTxY1BDoAgDASHRV/vhwHRemtSAsabl8l0t2kxs0NAF3AKqAJKtLLKasyaj82PdgGXgFuACZCA7Ngc+8S2uDfYAEXkybehTT6mFd7bDyDav3gA6ogaOZY0Sc8AAAAASUVORK5CYII=");}
+ul#css3menu0 img{
+	border:none;vertical-align:middle;margin-right:10px;}
+ul#css3menu0 span{
+	display:block;overflow:visible;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAAFCAYAAADWkcYlAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wBFwsaEPhJNTwAAABfSURBVHja7dqxDQAxDAMxOfvv7G9iIAt80pAjqDtA1d3ZOkmqqgIAAAD8qneQT4evM86TiHMAAAC4YMJ8Qn2JcwAAAHgf6esI8zYNAAAA3HPe3OfiLtIBAADgUZwnyQeivhwKKt7BhQAAAABJRU5ErkJggg==");background-position:right center;background-repeat:no-repeat;padding-right:14px;}
+ul#css3menu0 > li.switch{
+	display:none;cursor:pointer;width:25px;height:20px;padding:10px;}
+ul#css3menu0 > li.switch:before{
+	content:"";position:absolute;display:block;height:4px;width:25px;border-radius:4px;background:#FFF;-moz-box-shadow:0 8px #FFF, 0 16px #FFF;-webkit-box-shadow:0 8px #FFF, 0 16px #FFF;box-shadow:0 8px #FFF, 0 16px #FFF;}
+ul#css3menu0 > li.switch:hover:before{
+	background:#FFF;-moz-box-shadow:0 8px #FFF, 0 16px #FFF;-webkit-box-shadow:0 8px #FFF, 0 16px #FFF;box-shadow:0 8px #FFF, 0 16px #FFF;}
+.c3m-switch-input{
+	display:none;}
+ul#css3menu0 li:hover>a,ul#css3menu0 li > a.pressed{
+	background-color:#ffa202;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABkCAYAAABHLFpgAAAAAXNSR0IArs4c6QAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oJGA8fEDx90S8AAABXSURBVBjTxY1BDoAgDASHRV/vhwHRemtSAsabl8l0t2kxs0NAF3AKqAJKtLLKasyaj82PdgGXgFuACZCA7Ngc+8S2uDfYAEXkybehTT6mFd7bDyDav3gA6ogaOZY0Sc8AAAAASUVORK5CYII=");border-style:solid;border-color:#424542;color:#FFF;text-decoration:none;}
+ul#css3menu0 ul li:hover>a,ul#css3menu0 ul li > a.pressed{
+	color:#FFF;text-decoration:none;}
+ul#css3menu0 li.topfirst>a{
+	border-width:0;-moz-transition:all 0.5s;-webkit-transition:all 0.5s;-o-transition:all 0.5s;}
+ul#css3menu0 li.topmenu>a{
+	-moz-transition:all 0.5s;-webkit-transition:all 0.5s;-o-transition:all 0.5s;}
+ul#css3menu0 li.subfirst>a{
+	border-width:0;}
+@media screen and (max-width: 768px) {
+	ul#css3menu0 > li {
+		position: initial;}
+	ul#css3menu0 ul .submenu,ul#css3menu0 li > ul {
+		left: 0; right:auto; top: 100%;}
+	ul#css3menu0 .submenu,ul#css3menu0 ul,ul#css3menu0 .column {
+		-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;padding-right: 0;width: 100% !important;}
+}
+@media screen and (max-width: 271px) {
+	ul#css3menu0 {
+		width: 100%;}
+	ul#css3menu0 > li {
+		display: none;		position: relative;		width: 100% !important;}
+	ul#css3menu0 > li.switch,.c3m-switch-input:checked + ul#css3menu0 > li + li {
+		display: block;}
+	ul#css3menu0 > li.switch > label { position: absolute;cursor: pointer;top: 0;left: 0;right: 0;bottom: 0;}
+}
+
+/* Popup box BEGIN */
+
+.wakbd {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+}
+.wakbd-content {
+  position: fixed;
+  bottom: 0;
+  background-color: #fefefe;
+  width: 100%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+.wakbd-header {
+  padding: 2px 26px;
+  background-color: #5b8c03;
+  color: white;
+  height: 40px;
+}
+
+.wakbd-body {
+  padding: 2px 16px;
+}
+
+.wakbd-close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.wakbd-close:hover,
+.wakbd-close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.wakbd-kbdbtn {
+  border-radius: 4px;
+  padding: 8px;
+  margin: 1px;
+  color: #426601;
+  display: table-cell;
+  float: none;
+}
+.wakbd-kbdbtn:hover,
+.wakbd-kbdbtn:focus {
+  color: #000;
+}
+.wakbd-row {
+  /* display: table; */
+  /* display: table-cell; */
+  display: ruby-text-container;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {bottom: -300px; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}

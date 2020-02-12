@@ -1,0 +1,12 @@
+*.save
+libs/
+bin/
+obj/
+/docs/doxygen/doxygen.log
+/docs/doxygen/tmp
+/src/Aremote/bin
+/src/Aremote/test
+/src/Aremote/tools
+/src/Aremote/web/_OLD
+/src/Aremote/web/pack-test.html
+
