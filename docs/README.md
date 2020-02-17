@@ -1,4 +1,11 @@
-# Android remote viewer - DOCS temporary
+[![Git HOME](https://img.shields.io/badge/Home-Git-brightgreen.svg?style=flat)](https://github.com/clclon/Android-Remote-Viewer)
+[![Documentation](https://img.shields.io/badge/Documentation-DOC-brightgreen.svg?style=flat)](https://clclon.github.io/Android-Remote-Viewer)
+[![Repo size](https://img.shields.io/github/repo-size/clclon/Android-Remote-Viewer.svg?style=flat)](https://github.com/clclon/Android-Remote-Viewer)
+[![Code size](https://img.shields.io/github/languages/code-size/clclon/Android-Remote-Viewer.svg?style=flat)](https://github.com/clclon/Android-Remote-Viewer)
+
+# Android remote commander
+
+ - [Lua API help](AREMOTE.chm)
 
 ## Pre-build binary
 
@@ -15,7 +22,6 @@
  - [android-27](dist/android-27/arm64-v8a/aremote)
  - [android-27](dist/android-27/x86_64/aremote)
  - [android-27](dist/android-27/x86/aremote)
-
 
 #### Platform android-28, varsion 9
 
