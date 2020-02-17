@@ -9,4 +9,5 @@ obj/
 /src/Aremote/tools
 /src/Aremote/web/_OLD
 /src/Aremote/web/pack-test.html
+/src/Aremote/fakelib/lib
 
