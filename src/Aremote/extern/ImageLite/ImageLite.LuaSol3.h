@@ -98,15 +98,16 @@ namespace ImageLite
             Coordinates cannot exceed the physical size of the image in pixels.
      @luadata aremote.image.new(..)
      @verbatim
-        -- available Lua constructors
+        -- AVAILABLE LUA CONSTRUCTORS
         local im = aremote.image.new()
         local im = aremote.image.new(string filename)
         local im = aremote.image.new(table ImageTable)
      @endverbatim
-     @luacode
+     @luacode Example using aremote.image methods
+
+     IMAGE CREATE FROM IMAGETABLE
      @verbatim
-        -- image create from ImageTable
-        local imgTbl = aremote.screenGet();
+        local imgTbl = aremote.screenGet()
         local im     = aremote.image.new(imgTbl)
         if im:empty() then
             -- image null length, exit
@@ -119,22 +120,40 @@ namespace ImageLite
         -- image save
         im:save("filename.jpg")
      @endverbatim
+
+     IMAGE APPLY SEPIA EFFECT
      @verbatim
-        -- image apply sepia effect
         local im  = aremote.image.new("filename.jpg")
         im:sepia()
         im:save("filename.png")
      @endverbatim
+
+     IMAGE GRAYSCALE
      @verbatim
-        -- capture Android screen, full frame buffer data
-        local im  = aremote.image.new()
-        im:capture()
+        local im  = aremote.image.new("filename.jpg")
         -- image convert to grey
         im:grey()
+        im:save("filename.png")
+     @endverbatim
+
+     IMAGE BLACK & WHITE
+     @verbatim
+        local im  = aremote.image.new("filename.jpg")
+        -- image convert to black & white
+        im:bw()
+        im:save("filename.png")
+     @endverbatim
+
+     IMAGE CREATE FROM ANDROID FULL FRAME BUFFER, CAPTURE
+     @verbatim
+        local im  = aremote.image.new()
+        im:capture()
         im:save("filename.bmp")
      @endverbatim
+
+     IMAGE COMPARE
      @verbatim
-        local imgTbl = aremote.screenGet();
+        local imgTbl = aremote.screenGet()
         local im  = aremote.image.new("filename.jpg")
         -- image compare
         local x = im:compare(imgTbl)
@@ -142,11 +161,13 @@ namespace ImageLite
             -- images equals
         end
      @endverbatim
+
+     IMAGE REGION COMPARE
      @verbatim
-        local im1 =  aremote.image.new();
+        local im1 =  aremote.image.new()
         local im2  = aremote.image.new("filename300x300.jpg")
-        -- image compare
-        local x = im1:rcompare(im2:get(), 50, 70, 300, 300)
+        -- image compare region
+        local x = im1:rcompare(im2:get(), 70, 100, 300, 300)
         if x then
             -- images region equals
         end
@@ -167,12 +188,13 @@ namespace ImageLite
             LuaImage();
             /**< load image from constructor */
             LuaImage(std::string);
-            /**< create image from ImageTable */
+            /**< constructor create image from ImageTable */
             LuaImage(ImageLite::ImageTable);
+            //
 
             /**
              @brief Re-initialize LuaImage from ImageTable.
-             @luadata aremote.image im:set(table ImageTable)
+             @luadata aremote.image set(table ImageTable)
              @luacode
              @verbatim
                   local im = aremote.image.new()
@@ -185,7 +207,7 @@ namespace ImageLite
 
             /**
              @brief Get ImageTable from LuaImage.
-             @luadata aremote.image im:get()
+             @luadata aremote.image get()
              @luacode
              @verbatim
                   local im = aremote.image.new("filename.jpg")
@@ -197,7 +219,7 @@ namespace ImageLite
 
             /**
              @brief Compare LuaImage.
-             @luadata aremote.image im:compare(table ImageTable)
+             @luadata aremote.image compare(table ImageTable)
              @luacode
              @verbatim
                   local im1 = aremote.image.new("filename.jpg")
@@ -213,23 +235,24 @@ namespace ImageLite
 
             /**
              @brief Compare LuaImage region.
-             @luadata aremote.image im:rcompare(table ImageTable, x, y, w, h)
+             @luadata aremote.image rcompare(table ImageTable, x, y, w, h)
              @luacode
              @verbatim
                   local im1 = aremote.image.new("filename.jpg")
                   local im2 = aremote.image.new("filename300x300.png")
-                  local x = im1:rcompare(im2:get(), 19, 29, 300, 300)
+                  local x = im1:rcompare(im2:get(), 70, 100, 300, 300)
                   if x then
                      -- images region equals
                   end
              @endverbatim
+             @image{inline} html rcompare.png "region compare"
              @seeimgtbl
              */
             double compare_region(ImageLite::ImageTable, uint32_t, uint32_t, uint32_t, uint32_t);
 
             /**
              @brief Get pixel by x/y coordinates
-             @luadata aremote.image im:pixel(x, y)
+             @luadata aremote.image pixel(x, y)
              @luacode
              @verbatim
                   local im = aremote.image.new("filename.jpg")
@@ -240,7 +263,7 @@ namespace ImageLite
 
             /**
              @brief Get pixel by position
-             @luadata aremote.image im:pixel(position)
+             @luadata aremote.image pixelp(position)
              @luacode
              @verbatim
                   local im = aremote.image.new("filename.jpg")
@@ -251,7 +274,7 @@ namespace ImageLite
 
             /**
              @brief Get image dimensions
-             @luadata aremote.image im:size()
+             @luadata aremote.image size()
              @luacode
              @verbatim
                   local im = aremote.image.new("filename.jpg")
@@ -262,7 +285,7 @@ namespace ImageLite
 
             /**
              @brief Get image buffer length
-             @luadata aremote.image im:length()
+             @luadata aremote.image length()
              @luacode
              @verbatim
                   local im = aremote.image.new("filename.jpg")
@@ -273,7 +296,7 @@ namespace ImageLite
 
             /**
              @brief Check image is empty
-             @luadata aremote.image im:empty()
+             @luadata aremote.image empty()
              @luacode
              @verbatim
                   local im = aremote.image.new("filename.jpg")
@@ -287,7 +310,7 @@ namespace ImageLite
 
             /**
              @brief Capture Android screen, get full frame buffer data
-             @luadata aremote.image im:capture()
+             @luadata aremote.image capture()
              @luacode
              @verbatim
                   local im = aremote.image.new("filename.jpg")
@@ -303,7 +326,7 @@ namespace ImageLite
 
             /**
              @brief Load bmp, png, raw image
-             @luadata aremote.image im:load("filename.jpg")
+             @luadata aremote.image load("filename.jpg")
              @luacode
              @verbatim
                   local im = aremote.image.new()
@@ -314,7 +337,7 @@ namespace ImageLite
 
             /**
              @brief Save image as bmp, png, raw
-             @luadata aremote.image im:save("filename.jpg")
+             @luadata aremote.image save("filename.jpg")
              @luacode
              @verbatim
                   local im = aremote.image.new()
@@ -326,7 +349,7 @@ namespace ImageLite
 
             /**
              @brief Image apply sepia effect
-             @luadata aremote.image im:sepia()
+             @luadata aremote.image sepia()
              @luacode
              @verbatim
                   -- .. create image object
@@ -338,7 +361,7 @@ namespace ImageLite
 
             /**
              @brief Image convert to grey scale
-             @luadata aremote.image im:grey()
+             @luadata aremote.image grey()
              @luacode
              @verbatim
                   -- .. create image object
@@ -350,7 +373,7 @@ namespace ImageLite
 
             /**
              @brief Image convert to black & white
-             @luadata aremote.image im:bw()
+             @luadata aremote.image bw()
              @luacode
              @verbatim
                   -- .. create image object

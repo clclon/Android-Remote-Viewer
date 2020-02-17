@@ -1,5 +1,6 @@
 http://192.168.200.3:53777/stream/player
 http://127.0.0.1:53777/stream/player
+http://127.0.0.1:53777/stream/live.mjpg
 
 adb forward tcp:53777 tcp:53777
 adb.exe push libs\armeabi-v7a\aremote-tester /data/local/tmp/aremote-tester

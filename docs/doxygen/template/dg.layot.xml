@@ -5,8 +5,8 @@
     <tab type="mainpage" visible="yes" title="About.."/>
     <tab type="pages" visible="yes" title="Lua API" intro="Android Remote Lua script API"/>
     <tab type="usergroup" visible="yes" title="Downloads" briefdescription="Downloads">
-        <tab type="user" visible="yes" title="Git" url="https://github.com/clclon/Android-Remote-Viewer" />
-        <tab type="user" visible="yes" title="Downloads" url="https://github.com/clclon/Android-Remote-Viewer/releases" />
+        <tab type="user" visible="yes" title="Git" url="https://github.com/clclon/Android-Remote-Viewer/" />
+        <tab type="user" visible="yes" title="Downloads" url="https://clclon.github.io/Android-Remote-Viewer/" />
     </tab>
 
   </navindex>
