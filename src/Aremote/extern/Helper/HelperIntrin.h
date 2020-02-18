@@ -25,6 +25,13 @@
 #    endif
 #  endif
 
+#elif defined(_MSC_VER)
+
+#  if __has_include(<intrin.h>) // SSE1
+#    include <intrin.h>
+#    define _BUILD_XMMINTRIN_ENABLE 1
+#  endif
+
 #else
 
 #  if __has_include(<xmmintrin.h>) // SSE1
@@ -60,6 +67,9 @@
 #  else
 #    define INTRIN_TARGET(x)  __attribute__((target(x)))
 #  endif
+#elif defined(_MSC_VER)
+#  define INTRIN_ALIGNED(n) __declspec(align(n))
+#  define INTRIN_TARGET(x)
 #else
 #  define INTRIN_ALIGNED(n) __declspec(align(n))
 #  define INTRIN_TARGET(x)

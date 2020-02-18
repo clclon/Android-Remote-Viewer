@@ -21,6 +21,8 @@ namespace Helper
 
     void Intrin::init()
     {
+        try
+        {
 #   if defined(__GNUC__)
 #       if defined(__ANDROID__)
         uint64_t fcpu = android_getCpuFeatures();
@@ -80,7 +82,24 @@ namespace Helper
         else if (__builtin_cpu_supports("sse2"))   { m_cpuid = CpuId::CPU_SSE2;  }
         else if (__builtin_cpu_supports("popcnt")) { m_cpuid = CpuId::CPU_POPCNT;}
 #       endif
+
+#   elif defined(_MSC_VER)
+        int32_t cpuinfo[4]{};
+        __cpuid(cpuinfo, 1);
+        //
+        bool isavx2 = ((cpuinfo[2] & (1 << 28)) ? ((cpuinfo[2] & (1 << 27)) ? true : false) : false);
+        if (isavx2)
+        {
+            uint64_t const x = _xgetbv(0);
+            isavx2 = ((x & 0x6) == 0x6);
+            if (!isavx2)
+                return;
+
+            m_cpuid = CpuId::CPU_AVX2;
+        }
 #   endif
+        }
+        catch (...) {}
     }
 
 #   if (defined(__SSE2__) && !defined(__ANDROID__))
