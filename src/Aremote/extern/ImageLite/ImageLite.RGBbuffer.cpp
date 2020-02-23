@@ -661,6 +661,17 @@ namespace ImageLite
                         break;
                     }
                 case ImageType::IT_JPG:
+                    // required NVJPEGP.DLL
+                    // https://github.com/clclon/nvjpeg-for-MINGW-CUDA-Toolkit-10.x
+#                   if defined(_WIN64)
+                    {
+                        JpegGpu::NVJpegDecoder jpgd;
+                        jpgd.imgread(s.data(), m_idata.buffer);
+                        m_idata.point.set(jpgd.imgparam.width, jpgd.imgparam.height);
+                        m_pad = jpgd.imgparam.pad;
+                        break;
+                    }
+#                   endif
                 case ImageType::IT_RAW:
                     {
                         throw_sys_error(error_imgl_format_not_support);

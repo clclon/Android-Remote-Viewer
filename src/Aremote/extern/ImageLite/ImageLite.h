@@ -56,3 +56,7 @@
 #if (defined(__WIN32) && defined(_BUILD_IMAGELITE_DRAW))
 #  include "Draw/ImageLite.Draw.h"
 #endif
+#if defined(_WIN64)
+#  include "MJpeg/NVJpegDecoder.h"
+#endif
+
