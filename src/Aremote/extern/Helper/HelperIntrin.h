@@ -86,8 +86,10 @@ namespace Helper
             enum CpuId
             {
                 CPU_NATIVE = 0,
+                CPU_SSE,
                 CPU_SSE2,
                 CPU_SSE3,
+                CPU_SSSE3,
                 CPU_SSE41,
                 CPU_SSE42,
                 CPU_AVX,

@@ -1,4 +1,33 @@
+/*
+    MIT License
 
+    Android Aremote Viewer, GUI ADB tools
+
+    Android Viewer developed to view and control your android device from a PC.
+    ADB exchange Android Viewer, support scale view, input tap from mouse,
+    input swipe from keyboard, save/copy screenshot, etc..
+
+    Copyright (c) 2016-2020 PS
+    GitHub: https://github.com/ClClon/ImageLite-container
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sub license, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+ */
 
 #include "NVJpegDecoder.Internal.h"
 
@@ -23,12 +52,22 @@ enum maskid
 
 namespace ImageLite
 {
-    namespace JpegGpu
+    namespace JpegGpuAVX2
     {
+#   if defined(__AVX2__)
+#       if !defined(_BUILD_DLL)
+        static bool isavx2init = false;;
+#       endif
         static __m256i masks[9]{};
-
-        void initavx2_internal()
+        //
+        void __attribute__((noinline)) initavx2_internal()
         {
+#           if !defined(_BUILD_DLL)
+            if (isavx2init)
+                return;
+            isavx2init = true;
+#           endif
+            //
             masks[maskR1] = _mm256_setr_epi8(0, -1, -1, 1, -1, -1, 2, -1, -1, 3, -1, -1, 4, -1, -1, 5, -1, -1, 11, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
             masks[maskR2] = _mm256_setr_epi8(-1, -1, 6, -1, -1, 7, -1, -1, 8, -1, -1, 9, -1, -1, 10, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
             masks[maskR3] = _mm256_setr_epi8(-1, 11, -1, -1, 12, -1, -1, 13, -1, -1, 14, -1, -1, 15, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
@@ -43,14 +82,16 @@ namespace ImageLite
             //
         }
 
-        void tobuffer_avx2(
-            std::vector<uint8_t> const& Rc,
-            std::vector<uint8_t> const& Gc,
-            std::vector<uint8_t> const& Bc,
-            int32_t sz, NVJpegDecoder::gpuimage_t& param,
-            std::vector<uint8_t>& odata,
-            std::error_code& ec
-        )
+        INTRIN_TARGET("avx2")
+        void __attribute__((noinline)) tobuffer_avx2(
+                ImageLite::ImgBuffer const& Rc,
+                ImageLite::ImgBuffer const& Gc,
+                ImageLite::ImgBuffer const& Bc,
+                [[maybe_unused]] int32_t sz,
+                ImageLite::JpegGpu::NVJpegDecoder::gpuimage_t& param,
+                ImageLite::ImgBuffer& odata,
+                std::error_code& /* ec */
+            )
         {
             int32_t y;
 #           pragma omp parallel for private(y) schedule(static)
@@ -95,6 +136,11 @@ namespace ImageLite
                 }
             }
         }
+#   elif !defined(__ANDROID__)
+#     if defined(_BUILD_AVX2)
+#       error "broken assembly, support for AVX2 was not included at compile time, remove flag '_BUILD_AVX2'"
+#     endif
+#   endif
     }
 }
 

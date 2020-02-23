@@ -1,0 +1,436 @@
+# depslib dependency file v1.0
+1582535442 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\helper\helperintrin.cpp
+	"HelperIntrin.h"
+	"HelperIntrin/NDK/cpu-features.h"
+	<string>
+
+1582535139 e:\__buildsource\__svn__\aremote\src\aremote\extern\helper\helperintrin.h
+	<arm_neon_x86.h>
+	<arm_neon.h>
+	<altivec.h>
+	<intrin.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<immintrin.h>
+	<cpuid.h>
+	<stdint.h>
+
+1578342219 e:\__buildsource\__svn__\aremote\src\aremote\extern\helper\helperintrin\ndk\cpu-features.h
+	<sys/cdefs.h>
+	<stdint.h>
+
+1561913829 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\lodepng.cpp
+	"lodepng.h"
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+
+1561913829 e:\__buildsource\__svn__\aremote\src\aremote\extern\lodepng.h
+	<string.h>
+	<vector>
+	<string>
+	"lodepng.h"
+	<iostream>
+	"lodepng.h"
+
+1578062588 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\toojpeg.cpp
+	<vector>
+	<stdint.h>
+	"toojpeg.h"
+
+1577836554 e:\__buildsource\__svn__\aremote\src\aremote\extern\toojpeg.h
+
+1582583848 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.dll.cpp
+	"ImageLite.h"
+	<HelperIntrin.h>
+
+1582582239 e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.h
+	<windows.h>
+	<commctrl.h>
+	<gdiplus.h>
+	<SDL2/SDL_rect.h>
+	<atomic>
+	<string>
+	<sstream>
+	<fstream>
+	<vector>
+	<exception>
+	<stdexcept>
+	<functional>
+	<thread>
+	<cassert>
+	"ImageLite.Error.h"
+	"ImageLite.Geometry.h"
+	"ImageLite.Data.h"
+	"ImageLite.Formater.h"
+	"ImageLite.RGBbuffer.h"
+	"Draw/ImageLite.Draw.h"
+	"MJpeg/NVJpegDecoder.h"
+	"MJpeg.h"
+
+1581086190 e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.error.h
+	"ImageLite.Error.Items.h"
+
+1581625355 e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.error.items.h
+
+1580987765 e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.geometry.h
+
+1581944216 e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.data.h
+
+1581687860 e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.formater.h
+
+1581783543 e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.rgbbuffer.h
+
+1572407531 e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\draw\imagelite.draw.h
+
+1582498430 e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\mjpeg\nvjpegdecoder.h
+
+1582580546 e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\mjpeg\mjpeg.h
+
+1581086227 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.error.cpp
+	<string>
+	<system_error>
+	"ImageLite.Error.h"
+	"ImageLite.Error.Items.h"
+
+1582582892 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.formater.cpp
+	"ImageLite.Formater.internal.h"
+
+1581687073 e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.formater.internal.h
+	"ImageLite.h"
+	<HelperIntrin.h>
+
+1582583147 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.formater.icompare.avx2.cpp
+	"ImageLite.Formater.internal.h"
+
+1581680218 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.formater.icompare.cpp
+	"ImageLite.Formater.internal.h"
+
+1581686928 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.formater.iconverter.cpp
+	"ImageLite.Formater.internal.h"
+
+1581689060 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.formater.iconverter.native.cpp
+	"ImageLite.Formater.internal.h"
+
+1582472271 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\imagelite.rgbbuffer.cpp
+	"ImageLite.h"
+	<lodepng.h>
+	<toojpeg.h>
+
+1561913829 e:\__buildsource\__svn__\aremote\src\aremote\extern\\lodepng.h
+	<string.h>
+	<vector>
+	<string>
+	"lodepng.h"
+	<iostream>
+	"lodepng.h"
+
+1577836554 e:\__buildsource\__svn__\aremote\src\aremote\extern\\toojpeg.h
+
+1582583538 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\mjpeg\mjpeg.cpp
+	"../ImageLite.h"
+	"NVJpegDecoder.Error.h"
+	<HelperIntrin.h>
+	"MJpeg.Table.h"
+
+1582472744 e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\mjpeg\nvjpegdecoder.error.h
+
+1582533599 e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\mjpeg\mjpeg.table.h
+
+1582583194 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\mjpeg\mjpeg.parse.avx2.cpp
+	"../ImageLite.h"
+	"NVJpegDecoder.Error.h"
+	"MJpeg.Table.h"
+
+1582582347 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\mjpeg\mjpeg.parse.native.cpp
+	"../ImageLite.h"
+	"NVJpegDecoder.Error.h"
+	"MJpeg.Table.h"
+
+1582581551 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\mjpeg\nvjpegdecoder.cpp
+	"NVJpegDecoder.Internal.h"
+
+1582480912 e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\mjpeg\nvjpegdecoder.internal.h
+	<memory>
+	<vector>
+	<cassert>
+	<string>
+	<sstream>
+	<fstream>
+	<system_error>
+	<nvjpeg.h>
+	<cuda_runtime.h>
+	<device_launch_parameters.h>
+	"../ImageLite.h"
+	"NVJpegDecoder.Error.h"
+	"NVJpegDecoder.h"
+	<HelperIntrin.h>
+
+1571905705 e:\__buildsource\__lib__\64\cuda\include\nvjpeg.h
+	"cuda_runtime_api.h"
+	"library_types.h"
+	"stdint.h"
+
+1571905693 e:\__buildsource\__lib__\64\cuda\include\cuda_runtime_api.h
+	"crt/host_defines.h"
+	"builtin_types.h"
+	"cuda_device_runtime_api.h"
+
+1582051810 e:\__buildsource\__lib__\64\cuda\include\crt\host_defines.h
+
+1571905693 e:\__buildsource\__lib__\64\cuda\include\builtin_types.h
+	"device_types.h"
+	"driver_types.h"
+	"surface_types.h"
+	"texture_types.h"
+	"vector_types.h"
+
+1571905693 e:\__buildsource\__lib__\64\cuda\include\device_types.h
+	"crt/host_defines.h"
+
+1571905693 e:\__buildsource\__lib__\64\cuda\include\driver_types.h
+	"crt/host_defines.h"
+	"vector_types.h"
+	<limits.h>
+	<stddef.h>
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\vector_types.h
+	"crt/host_defines.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\surface_types.h
+	"driver_types.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\texture_types.h
+	"driver_types.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\cuda_device_runtime_api.h
+	"driver_types.h"
+	"crt/host_defines.h"
+
+1571905693 e:\__buildsource\__lib__\64\cuda\include\library_types.h
+
+1571905693 e:\__buildsource\__lib__\64\cuda\include\cuda_runtime.h
+	"crt/host_config.h"
+	"builtin_types.h"
+	"library_types.h"
+	"channel_descriptor.h"
+	"cuda_runtime_api.h"
+	"driver_functions.h"
+	"crt/host_defines.h"
+	"vector_functions.h"
+	"nvrtc_device_runtime.h"
+	"crt/device_functions.h"
+	"crt/common_functions.h"
+	"cuda_surface_types.h"
+	"cuda_texture_types.h"
+	"device_launch_parameters.h"
+	"crt/common_functions.h"
+	"cuda_surface_types.h"
+	"cuda_texture_types.h"
+	"crt/device_functions.h"
+	"device_launch_parameters.h"
+	<functional>
+	<utility>
+
+1571905692 e:\__buildsource\__lib__\64\cuda\include\crt\host_config.h
+	<features.h>
+	<crtdefs.h>
+	<corecrt.h>
+	<cstdarg>
+
+1571905693 e:\__buildsource\__lib__\64\cuda\include\channel_descriptor.h
+	"cuda_runtime_api.h"
+
+1571905693 e:\__buildsource\__lib__\64\cuda\include\driver_functions.h
+	"builtin_types.h"
+	"crt/host_defines.h"
+	"driver_types.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\vector_functions.h
+	"cuda_runtime_api.h"
+	"vector_functions.hpp"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\vector_functions.hpp
+	"cuda_runtime_api.h"
+
+1571905692 e:\__buildsource\__lib__\64\cuda\include\crt\device_functions.h
+	"builtin_types.h"
+	"device_types.h"
+	"host_defines.h"
+	"device_functions.hpp"
+	"device_atomic_functions.h"
+	"device_double_functions.h"
+	"sm_20_atomic_functions.h"
+	"sm_32_atomic_functions.h"
+	"sm_35_atomic_functions.h"
+	"sm_60_atomic_functions.h"
+	"sm_20_intrinsics.h"
+	"sm_30_intrinsics.h"
+	"sm_32_intrinsics.h"
+	"sm_35_intrinsics.h"
+	"sm_61_intrinsics.h"
+	"sm_70_rt.h"
+	"surface_functions.h"
+	"texture_fetch_functions.h"
+	"texture_indirect_functions.h"
+	"surface_indirect_functions.h"
+
+1571905692 e:\__buildsource\__lib__\64\cuda\include\crt\device_functions.hpp
+	"builtin_types.h"
+	"device_types.h"
+	"host_defines.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\device_atomic_functions.h
+	"cuda_runtime_api.h"
+	"cuda_runtime_api.h"
+	"device_atomic_functions.hpp"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\device_atomic_functions.hpp
+	"cuda_runtime_api.h"
+	"cuda_runtime_api.h"
+
+1571905692 e:\__buildsource\__lib__\64\cuda\include\crt\device_double_functions.h
+	"builtin_types.h"
+	"device_types.h"
+	"host_defines.h"
+	"device_double_functions.hpp"
+
+1571905692 e:\__buildsource\__lib__\64\cuda\include\crt\device_double_functions.hpp
+	"builtin_types.h"
+	"device_types.h"
+	"host_defines.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_20_atomic_functions.h
+	"cuda_runtime_api.h"
+	"sm_20_atomic_functions.hpp"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_20_atomic_functions.hpp
+	"cuda_runtime_api.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_32_atomic_functions.h
+	"cuda_runtime_api.h"
+	"sm_32_atomic_functions.hpp"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_32_atomic_functions.hpp
+	"cuda_runtime_api.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_35_atomic_functions.h
+	"sm_32_atomic_functions.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_60_atomic_functions.h
+	"cuda_runtime_api.h"
+	"sm_60_atomic_functions.hpp"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_60_atomic_functions.hpp
+	"cuda_runtime_api.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_20_intrinsics.h
+	"cuda_runtime_api.h"
+	"sm_20_intrinsics.hpp"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_20_intrinsics.hpp
+	"cuda_runtime_api.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_30_intrinsics.h
+	"cuda_runtime_api.h"
+	"sm_30_intrinsics.hpp"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_30_intrinsics.hpp
+	"cuda_runtime_api.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_32_intrinsics.h
+	"cuda_runtime_api.h"
+	"sm_32_intrinsics.hpp"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_32_intrinsics.hpp
+	"cuda_runtime_api.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_35_intrinsics.h
+	"sm_32_intrinsics.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_61_intrinsics.h
+	"cuda_runtime_api.h"
+	"sm_61_intrinsics.hpp"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\sm_61_intrinsics.hpp
+	"cuda_runtime_api.h"
+
+1571905692 e:\__buildsource\__lib__\64\cuda\include\crt\sm_70_rt.h
+	"builtin_types.h"
+	"device_types.h"
+	"host_defines.h"
+	"sm_70_rt.hpp"
+
+1571905692 e:\__buildsource\__lib__\64\cuda\include\crt\sm_70_rt.hpp
+	"builtin_types.h"
+	"device_types.h"
+	"host_defines.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\surface_functions.h
+	"cuda_runtime_api.h"
+	"cuda_surface_types.h"
+
+1571905693 e:\__buildsource\__lib__\64\cuda\include\cuda_surface_types.h
+	"channel_descriptor.h"
+	"cuda_runtime_api.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\texture_fetch_functions.h
+	"cuda_runtime_api.h"
+	"cuda_texture_types.h"
+
+1571905693 e:\__buildsource\__lib__\64\cuda\include\cuda_texture_types.h
+	"channel_descriptor.h"
+	"cuda_runtime_api.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\texture_indirect_functions.h
+	"cuda_runtime_api.h"
+
+1571905694 e:\__buildsource\__lib__\64\cuda\include\surface_indirect_functions.h
+	"cuda_runtime_api.h"
+
+1571905692 e:\__buildsource\__lib__\64\cuda\include\crt\common_functions.h
+	"builtin_types.h"
+	"host_defines.h"
+	<string.h>
+	<time.h>
+	<new>
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	"cuda_device_runtime_api.h"
+	"math_functions.h"
+
+1571905692 e:\__buildsource\__lib__\64\cuda\include\crt\math_functions.h
+	<__config>
+	"builtin_types.h"
+	"host_defines.h"
+	<math.h>
+	<stdlib.h>
+	<cmath>
+	<cstdlib>
+	<crt/func_macro.h>
+	"math_functions.hpp"
+
+1571905692 e:\__buildsource\__lib__\64\cuda\include\crt\func_macro.h
+
+1571905692 e:\__buildsource\__lib__\64\cuda\include\crt\math_functions.hpp
+	"builtin_types.h"
+	"host_defines.h"
+	"host_defines.h"
+	"math_constants.h"
+	<crt/func_macro.h>
+
+1571905693 e:\__buildsource\__lib__\64\cuda\include\math_constants.h
+
+1571905693 e:\__buildsource\__lib__\64\cuda\include\device_launch_parameters.h
+	"vector_types.h"
+
+1582472717 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\mjpeg\nvjpegdecoder.error.cpp
+	"NVJpegDecoder.Internal.h"
+
+1582584881 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\mjpeg\nvjpegdecoder.imgbuffer.avx2.cpp
+	"NVJpegDecoder.Internal.h"
+
+1582584881 source:e:\__buildsource\__svn__\aremote\src\aremote\extern\imagelite\mjpeg\nvjpegdecoder.imgbuffer.native.cpp
+	"NVJpegDecoder.Internal.h"
+

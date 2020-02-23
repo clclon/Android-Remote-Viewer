@@ -1,4 +1,4 @@
-/*
+﻿/*
     MIT License
 
     Android Aremote Viewer, GUI ADB tools
@@ -29,49 +29,44 @@
     SOFTWARE.
  */
 
-#include <map>
-#include <string>
-#include <system_error>
 #include "ImageLite.h"
-#include <HelperMap.h>
+#include <HelperIntrin.h>
 
+#if defined(_BUILD_DLL)
+#   if (defined(_BUILD_AVX2) || defined(__AVX2__))
 namespace ImageLite
 {
-    Helper::CatalogMap l_imgl_error = Helper::CatalogMapInit
-        (error_begin, "")
-#       define __ERRITEM(A,B) (error_ ## A, B)
-#       include "ImageLite.Error.Items.h"
-        (error_unknown, "error unknown")
-        (error_end, "");
-    //
-    std::string_view geterror(int32_t e)
+    namespace MJpegAVX2
     {
-        if ((e < ImageLite::ErrorId::error_begin) || (e > ImageLite::ErrorId::error_end))
-            e = ImageLite::ErrorId::error_unknown;
-
-        auto r = l_imgl_error.find(e);
-        if (r == l_imgl_error.end())
-            return "";
-        return r->second;
+        void initavx2_internal();
     }
-
-    const char* ErrorCat::name() const noexcept
+    namespace JpegGpuAVX2
     {
-        return "Image Lite Error";
-    }
-
-    std::string_view ErrorCat::message(ImageLite::ErrorId e) const
-    {
-        return geterror(static_cast<int32_t>(e));
-    }
-
-    std::string ErrorCat::message(int32_t e) const
-    {
-        return std::string(geterror(e));
-    }
-
-    std::error_code make_error_code(ErrorId e)
-    {
-        return { static_cast<int32_t>(e), errCat };
+        void initavx2_internal();
     }
 }
+#   endif
+
+BOOL APIENTRY DllMain(HMODULE, DWORD id, LPVOID)
+{
+    switch (id)
+    {
+        case DLL_PROCESS_ATTACH:
+        {
+#           if (defined(_BUILD_AVX2) || defined(__AVX2__))
+            if (Helper::intrin.getcpuid() == Helper::Intrin::CpuId::CPU_AVX2)
+            {
+                ImageLite::MJpegAVX2::initavx2_internal();
+                ImageLite::JpegGpuAVX2::initavx2_internal();
+            }
+#           endif
+            break;
+        }
+        case DLL_THREAD_ATTACH:
+        case DLL_THREAD_DETACH:
+        case DLL_PROCESS_DETACH:
+            break;
+    }
+    return TRUE;
+}
+#endif

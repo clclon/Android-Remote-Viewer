@@ -3,6 +3,7 @@
 rename Application.mk Application.mk.orig
 
 CALL :BuildNDK android-21 5
+CALL :BuildNDK android-24 7
 CALL :BuildNDK android-27 8
 CALL :BuildNDK android-28 9
 

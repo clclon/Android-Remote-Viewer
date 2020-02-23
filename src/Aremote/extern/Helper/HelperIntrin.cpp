@@ -1,3 +1,33 @@
+/*
+    MIT License
+
+    Android Aremote Viewer, GUI ADB tools
+
+    Android Viewer developed to view and control your android device from a PC.
+    ADB exchange Android Viewer, support scale view, input tap from mouse,
+    input swipe from keyboard, save/copy screenshot, etc..
+
+    Copyright (c) 2016-2020 PS
+    GitHub: https://github.com/ClClon/ImageLite-container
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sub license, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+ */
 
 #include "HelperIntrin.h"
 #if defined(__ANDROID__)
@@ -78,25 +108,62 @@ namespace Helper
         else if (__builtin_cpu_supports("avx"))    { m_cpuid = CpuId::CPU_AVX;   }
         else if (__builtin_cpu_supports("sse4.2")) { m_cpuid = CpuId::CPU_SSE42; }
         else if (__builtin_cpu_supports("sse4.1")) { m_cpuid = CpuId::CPU_SSE41; }
-        else if (__builtin_cpu_supports("ssse3"))  { m_cpuid = CpuId::CPU_SSE3;  }
+        else if (__builtin_cpu_supports("ssse3"))  { m_cpuid = CpuId::CPU_SSSE3; }
+        else if (__builtin_cpu_supports("sse3"))   { m_cpuid = CpuId::CPU_SSE3;  }
         else if (__builtin_cpu_supports("sse2"))   { m_cpuid = CpuId::CPU_SSE2;  }
+        else if (__builtin_cpu_supports("sse"))    { m_cpuid = CpuId::CPU_SSE;   }
         else if (__builtin_cpu_supports("popcnt")) { m_cpuid = CpuId::CPU_POPCNT;}
 #       endif
 
 #   elif defined(_MSC_VER)
-        int32_t cpuinfo[4]{};
-        __cpuid(cpuinfo, 1);
-        //
-        bool isavx2 = ((cpuinfo[2] & (1 << 28)) ? ((cpuinfo[2] & (1 << 27)) ? true : false) : false);
-        if (isavx2)
+        do
         {
-            uint64_t const x = _xgetbv(0);
-            isavx2 = ((x & 0x6) == 0x6);
-            if (!isavx2)
-                return;
+            int32_t cpuinfo[4]{};
+            __cpuid(cpuinfo, 1);
 
-            m_cpuid = CpuId::CPU_AVX2;
+            bool isavx2 = ((cpuinfo[2] & (1 << 28)) ? ((cpuinfo[2] & (1 << 27)) ? true : false) : false);
+            if (isavx2)
+            {
+                uint64_t const x = _xgetbv(0);
+                isavx2 = ((x & 0x6) == 0x6);
+                if (isavx2)
+                {
+                    m_cpuid = CpuId::CPU_AVX2;
+                    break;
+                }
+            }
+            if (cpuinfo[2] & (1 << 20))
+            {
+                m_cpuid = CpuId::CPU_SSE42;
+                break;
+            }
+            if (cpuinfo[2] & (1 << 19))
+            {
+                m_cpuid = CpuId::CPU_SSE41;
+                break;
+            }
+            if (cpuinfo[2] & (1 << 9))
+            {
+                m_cpuid = CpuId::CPU_SSSE3;
+                break;
+            }
+            if (cpuinfo[2] & (1 << 0))
+            {
+                m_cpuid = CpuId::CPU_SSE3;
+                break;
+            }
+            if (cpuinfo[3] & (1 << 26))
+            {
+                m_cpuid = CpuId::CPU_SSE2;
+                break;
+            }
+            if (cpuinfo[3] & (1 << 25))
+            {
+                m_cpuid = CpuId::CPU_SSE;
+                break;
+            }
         }
+        while (0);
 #   endif
         }
         catch (...) {}

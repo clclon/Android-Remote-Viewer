@@ -1,3 +1,6 @@
+#ifndef HEADER_56CE205B424D49E9
+#define HEADER_56CE205B424D49E9
+
 
 #pragma once
 
@@ -7,7 +10,7 @@ namespace ImageLite
 	{
 		struct gpuparams_t;
 		//
-		class NVJpegDecoder
+		class DLL_EXPORT NVJpegDecoder
 		{
 		public:
 			//
@@ -17,6 +20,14 @@ namespace ImageLite
 				int32_t size() noexcept
 				{
 					return ((pitch + pad) * height);
+				}
+				bool empty() noexcept
+				{
+					return (!height || !width || !channel || !pitch);
+				}
+				void clear() noexcept
+				{
+					height = width = channel = pitch = pad = 0;
 				}
 				void info(std::ostream& os) const
 				{
@@ -37,12 +48,12 @@ namespace ImageLite
 			std::unique_ptr<gpuparams_t> nvparam;
 			bool                         nvisenable = false;
 			//
-			void init();
+			void init() noexcept;
 			void clean();
 			void imgalloc();
-			void imginfo(std::vector<uint8_t> const&);
-			void imgbuffer(std::vector<uint8_t>&);
-			void imgdecompress(std::vector<uint8_t> const&, std::vector<uint8_t>&);
+			void imginfo(ImageLite::ImgBuffer const&);
+			void imgbuffer(ImageLite::ImgBuffer&);
+			void imgdecompress(ImageLite::ImgBuffer const&, ImageLite::ImgBuffer&);
 
 		public:
 			//
@@ -50,14 +61,17 @@ namespace ImageLite
 			std::error_code error;
 			//
 			NVJpegDecoder() noexcept;
-			NVJpegDecoder(int32_t);
+			NVJpegDecoder(int32_t) noexcept;
 			~NVJpegDecoder();
 			//
 			bool isenable();
-			bool imgread(std::string const&, std::vector<uint8_t>&);
-			bool imgstream(std::vector<uint8_t> const&, std::vector<uint8_t>&);
+			bool imgread(std::string const&, ImageLite::ImgBuffer&);
+			bool imgstream(ImageLite::ImgBuffer const&, ImageLite::ImgBuffer&);
+			void clear();
 			//
 			static const char* cudaGetError(uint32_t);
 		};
 	}
 }
+#endif // header guard
+

@@ -157,19 +157,19 @@ namespace Helper
                         ff,
                         ln);
 			}
-			ToLog & operator << (std::exception_ptr const & pe)
-			{
-			    if (Ttype > LogConfiguration().getSeverity())
+            ToLog & operator << (std::exception_ptr const & pe)
+            {
+                if (Ttype > LogConfiguration().getSeverity())
                     return *this;
 
                 if (LogConfiguration().getException(pe))
                     setsend();
                 return *this;
             }
-			template<typename Targ>
-			ToLog & operator << (Targ const & msg)
-			{
-			    if (Ttype > LogConfiguration().getSeverity())
+            template<typename Targ>
+            ToLog & operator << (Targ const & msg)
+            {
+                if (Ttype > LogConfiguration().getSeverity())
                     return *this;
 
                 LogConfiguration().toOut(LOGTYPEOUTDEFAULT(), msg);

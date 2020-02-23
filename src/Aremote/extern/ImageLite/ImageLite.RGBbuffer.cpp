@@ -1,3 +1,33 @@
+/*
+    MIT License
+
+    Android Aremote Viewer, GUI ADB tools
+
+    Android Viewer developed to view and control your android device from a PC.
+    ADB exchange Android Viewer, support scale view, input tap from mouse,
+    input swipe from keyboard, save/copy screenshot, etc..
+
+    Copyright (c) 2016-2020 PS
+    GitHub: https://github.com/ClClon/ImageLite-container
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sub license, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+ */
 
 #include "ImageLite.h"
 #include <lodepng.h>
@@ -25,11 +55,11 @@ namespace ImageLite
     ImageRGBbuffer::ImageRGBbuffer(ImageTable const & it, BufferType t)
     {
         if (!it.data.size())
-            throw_sys_error(error_imgl_buffer_empty);
+            throw_sys_error(error_buffer_empty);
         if ((!it.width) || (!it.height))
-            throw_sys_error(error_imgl_size_mismatch);
+            throw_sys_error(error_size_mismatch);
         if (it.itype != BufferType::IBT_RGB)
-            throw_sys_error(error_imgl_not_support_type);
+            throw_sys_error(error_not_support_type);
 
         ImageLite::ImageDataP idtmp
         {
@@ -46,15 +76,15 @@ namespace ImageLite
         m_pad = 0;
 
         if (getsize(SizeType::IST_CALC_BYTES).x != static_cast<int32_t>(m_idata.buffer.size()))
-            throw_sys_error(error_imgl_bad_size);
+            throw_sys_error(error_bad_size);
     }
 
     ImageRGBbuffer::ImageRGBbuffer(ImgBuffer const & b, uint32_t w, uint32_t h, uint32_t s, BufferType t)
     {
         if (!b.size())
-            throw_sys_error(error_imgl_buffer_empty);
+            throw_sys_error(error_buffer_empty);
         if ((!w) || (!h))
-            throw_sys_error(error_imgl_size_mismatch);
+            throw_sys_error(error_size_mismatch);
 
         ImageLite::ImageDataP idtmp
         {
@@ -70,7 +100,7 @@ namespace ImageLite
         _init(idtmp, m_idata, t);
 
         if (getsize(SizeType::IST_CALC_BYTES).x != static_cast<int32_t>(m_idata.buffer.size()))
-            throw_sys_error(error_imgl_bad_size);
+            throw_sys_error(error_bad_size);
 
         if (!s)
             m_pad = _set_stride();
@@ -81,11 +111,11 @@ namespace ImageLite
     ImageRGBbuffer::ImageRGBbuffer(uint8_t const *b, uint32_t sz, uint32_t w, uint32_t h, uint32_t s, BufferType t)
     {
         if (!sz)
-            throw_sys_error(error_imgl_pointer_size);
+            throw_sys_error(error_pointer_size);
         if (!b)
-            throw_sys_error(error_imgl_pointer_null);
+            throw_sys_error(error_pointer_null);
         if ((!w) || (!h))
-            throw_sys_error(error_imgl_size_mismatch);
+            throw_sys_error(error_size_mismatch);
 
         ImageLite::ImageData idtmp
         {
@@ -103,7 +133,7 @@ namespace ImageLite
         _init(idtmp, m_idata, t);
 
         if (getsize(SizeType::IST_CALC_BYTES).x != static_cast<int32_t>(m_idata.buffer.size()))
-            throw_sys_error(error_imgl_bad_size);
+            throw_sys_error(error_bad_size);
 
         if (!s)
             m_pad = _set_stride();
@@ -114,7 +144,7 @@ namespace ImageLite
     ImageRGBbuffer::ImageRGBbuffer(std::string_view const & s, ImageType t)
     {
         if (s.empty())
-            throw_sys_error(error_imgl_file_name_empty);
+            throw_sys_error(error_file_name_empty);
 
         load(s, t);
     }
@@ -122,7 +152,7 @@ namespace ImageLite
     ImageRGBbuffer::ImageRGBbuffer(std::string_view const & s, uint32_t w, uint32_t h, uint32_t s_, BufferType)
     {
         if (s.empty())
-            throw_sys_error(error_imgl_file_name_empty);
+            throw_sys_error(error_file_name_empty);
 
         // TODO (clanc#1#18.10.2019): check BufferType
         load_raw(s, w, h, s_);
@@ -134,11 +164,11 @@ namespace ImageLite
             ImageLite::BufferType t)
     {
         if (!idata.buffer.size())
-            throw_sys_error(error_imgl_buffer_empty);
+            throw_sys_error(error_buffer_empty);
         if ((!idata.point.x) || (!idata.point.y))
-            throw_sys_error(error_imgl_size_mismatch);
+            throw_sys_error(error_size_mismatch);
         if ((idata.point.x < (ir.w + ir.x)) || (idata.point.y < (ir.h + ir.y)))
-            throw_sys_error(error_imgl_size_is_large);
+            throw_sys_error(error_size_is_large);
 
         ImageLite::ImageData idtmp{};
         _init(idata, idtmp, t);
@@ -156,7 +186,7 @@ namespace ImageLite
                     m_idata,
                     ir
                 ))
-                throw_sys_error(error_imgl_not_crop);
+                throw_sys_error(error_not_crop);
             m_pad = getpad();
         }
     }
@@ -167,11 +197,11 @@ namespace ImageLite
             ImageLite::BufferType t)
     {
         if (!idata.buffer.size())
-            throw_sys_error(error_imgl_buffer_empty);
+            throw_sys_error(error_buffer_empty);
         if ((!idata.point.x) || (!idata.point.y))
-            throw_sys_error(error_imgl_size_mismatch);
+            throw_sys_error(error_size_mismatch);
         if ((idata.point.x < ip.x) || (idata.point.y < ip.y))
-            throw_sys_error(error_imgl_size_is_large);
+            throw_sys_error(error_size_is_large);
 
         ImageLite::ImageData idtmp{};
         _init(idata, idtmp, t);
@@ -186,7 +216,7 @@ namespace ImageLite
         {
             // TODO (clanc#1#18.10.2019): write resize
             // m_pad = getpad();
-            throw_sys_error(error_imgl_not_crop);
+            throw_sys_error(error_not_crop);
         }
     }
 
@@ -195,9 +225,9 @@ namespace ImageLite
             ImageLite::BufferType t)
     {
         if (!idata.buffer.size())
-            throw_sys_error(error_imgl_buffer_empty);
+            throw_sys_error(error_buffer_empty);
         if ((!idata.point.x) || (!idata.point.y))
-            throw_sys_error(error_imgl_size_mismatch);
+            throw_sys_error(error_size_mismatch);
 
         ImageLite::ImageData idtmp{};
         _init(idata, idtmp, t);
@@ -243,10 +273,10 @@ namespace ImageLite
                             src.point.x, src.point.y, src.stride, (src.point.x % 4),
                             nullptr
                         ))
-                        throw_sys_error(error_imgl_buffer_empty);
+                        throw_sys_error(error_buffer_empty);
 
                     if (!dst.buffer.size())
-                        throw_sys_error(error_imgl_bad_size);
+                        throw_sys_error(error_bad_size);
 #                   endif
                     break;
                 }
@@ -261,17 +291,17 @@ namespace ImageLite
                             src.point.x, src.point.y, src.stride, (src.point.x % 4),
                             nullptr
                         ))
-                        throw_sys_error(error_imgl_buffer_empty);
+                        throw_sys_error(error_buffer_empty);
 
                     if (!dst.buffer.size())
-                        throw_sys_error(error_imgl_bad_size);
+                        throw_sys_error(error_bad_size);
 #                   else
                     dst.buffer = src.buffer;
 #                   endif
                     break;
                 }
             default:
-                throw_sys_error(error_imgl_not_support_type);
+                throw_sys_error(error_not_support_type);
         }
         // convert buffer is bitmap reverse pixels
         switch (t)
@@ -293,10 +323,10 @@ namespace ImageLite
                                 dst.point.x, dst.point.y, dst.stride, (dst.point.x % 4),
                                 nullptr
                             ))
-                            throw_sys_error(error_imgl_buffer_empty);
+                            throw_sys_error(error_buffer_empty);
 
                     if (!ibtmp.size())
-                        throw_sys_error(error_imgl_bad_size);
+                        throw_sys_error(error_bad_size);
 
                     dst.buffer = ibtmp;
                     break;
@@ -393,7 +423,7 @@ namespace ImageLite
     void ImageRGBbuffer::_check_buffer_pos(uint32_t pos)
     {
         if (pos >= m_idata.buffer.size())
-            throw_sys_error(error_imgl_bad_index);
+            throw_sys_error(error_bad_index);
     }
 
     int32_t ImageRGBbuffer::_set_stride()
@@ -417,7 +447,7 @@ namespace ImageLite
                 ip.x, ip.y, m_idata.stride, m_pad,
                 nullptr
                 ))
-                throw_sys_error(error_imgl_buffer_empty);
+                throw_sys_error(error_buffer_empty);
 
         icnvbmp.header = getbmpheader();
         return icnvbmp;
@@ -505,10 +535,10 @@ namespace ImageLite
                 m_idata.point.x, m_idata.point.y, m_idata.stride, m_pad,
                 nullptr
             ))
-            throw_sys_error(error_imgl_buffer_empty);
+            throw_sys_error(error_buffer_empty);
 
         if (!m_idata.buffer.size())
-            throw_sys_error(error_imgl_bad_size);
+            throw_sys_error(error_bad_size);
     }
 
     void ImageRGBbuffer::grey()
@@ -520,10 +550,10 @@ namespace ImageLite
                 m_idata.point.x, m_idata.point.y, m_idata.stride, m_pad,
                 nullptr
             ))
-            throw_sys_error(error_imgl_buffer_empty);
+            throw_sys_error(error_buffer_empty);
 
         if (!m_idata.buffer.size())
-            throw_sys_error(error_imgl_bad_size);
+            throw_sys_error(error_bad_size);
     }
 
     void ImageRGBbuffer::bw()
@@ -535,10 +565,10 @@ namespace ImageLite
                 m_idata.point.x, m_idata.point.y, m_idata.stride, m_pad,
                 nullptr
             ))
-            throw_sys_error(error_imgl_buffer_empty);
+            throw_sys_error(error_buffer_empty);
 
         if (!m_idata.buffer.size())
-            throw_sys_error(error_imgl_bad_size);
+            throw_sys_error(error_bad_size);
     }
 
     ImageLite::ImageType ImageRGBbuffer::getimgtype(std::string_view const & s)
@@ -565,7 +595,7 @@ namespace ImageLite
     {
         if (t == ImageType::IT_NONE)
             if ((t = getimgtype(s)) == ImageType::IT_NONE)
-                throw_sys_error(error_imgl_format_not_support);
+                throw_sys_error(error_format_not_support);
 
         try
         {
@@ -579,10 +609,10 @@ namespace ImageLite
                                  err = lodepng::decode(icnvpng, w, h, s.data(), LCT_RGB, 8);
 
                         if (err)
-                            throw_sys_error_ex(error_imgl_png_lib_error, lodepng_error_text(err));
+                            throw_sys_error_ex(error_png_lib_error, lodepng_error_text(err));
 
                         if (!icnvpng.size())
-                            throw_sys_error(error_imgl_buffer_empty);
+                            throw_sys_error(error_buffer_empty);
 
                         m_idata.point.set<uint32_t>(w, h);
                         m_pad = _set_stride();
@@ -598,10 +628,10 @@ namespace ImageLite
                                             m_idata.point.x, m_idata.point.y, m_idata.stride, m_pad,
                                             nullptr
                                         ))
-                                        throw_sys_error(error_imgl_buffer_empty);
+                                        throw_sys_error(error_buffer_empty);
 
                                     if (!m_idata.buffer.size())
-                                        throw_sys_error(error_imgl_bad_size);
+                                        throw_sys_error(error_bad_size);
                                     break;
                                 }
                             case BufferType::IBT_NOPAD:
@@ -620,25 +650,25 @@ namespace ImageLite
                         std::ifstream f(s.data(), std::ios::binary);
 
                         if (!f.is_open())
-                            throw_sys_error(error_imgl_file_not_access);
+                            throw_sys_error(error_file_not_access);
 
                         ImageLite::IBMPHEADER bmph{};
                         f.read(reinterpret_cast<char*>(&bmph), sizeof(bmph));
 
                         if (bmph.fh.bfType != 0x4D42)
-                            throw_sys_error(error_imgl_bmp_not_format);
+                            throw_sys_error(error_bmp_not_format);
 
                         if ((!bmph.ih.biWidth) || (!bmph.ih.biHeight))
-                            throw_sys_error(error_imgl_bmp_header_not_size);
+                            throw_sys_error(error_bmp_header_not_size);
 
                         if (bmph.ih.biBitCount != 24)
-                            throw_sys_error(error_imgl_bmp_color_not_24);
+                            throw_sys_error(error_bmp_color_not_24);
 
                         if (bmph.ih.biCompression != 0x0000)
-                            throw_sys_error(error_imgl_bmp_format_not_rgb);
+                            throw_sys_error(error_bmp_format_not_rgb);
 
                         if ((!bmph.fh.bfOffBits) || (bmph.fh.bfSize <= bmph.fh.bfOffBits))
-                            throw_sys_error(error_imgl_bmp_size_mismatch);
+                            throw_sys_error(error_bmp_size_mismatch);
 
                         m_idata.point.set<long>(bmph.ih.biWidth, bmph.ih.biHeight);
                         m_pad = _set_stride();
@@ -648,7 +678,7 @@ namespace ImageLite
                         f.read(reinterpret_cast<char*>(&icnvbmp[0]), sz);
 
                         if (icnvbmp.size() != sz)
-                            throw_sys_error(error_imgl_bmp_size_mismatch);
+                            throw_sys_error(error_bmp_size_mismatch);
 
                         if(!ImageLite::Formater::iconvert(
                                 &ImageLite::Formater::CONVERT_BMP,
@@ -657,7 +687,7 @@ namespace ImageLite
                                 m_idata.point.x, m_idata.point.y, m_idata.stride, m_pad,
                                 nullptr
                             ))
-                            throw_sys_error(error_imgl_bmp_not_convertible);
+                            throw_sys_error(error_bmp_not_convertible);
                         break;
                     }
                 case ImageType::IT_JPG:
@@ -666,6 +696,9 @@ namespace ImageLite
 #                   if defined(_WIN64)
                     {
                         JpegGpu::NVJpegDecoder jpgd;
+                        if (!jpgd.isenable())
+                            throw std::system_error(jpgd.error);
+
                         jpgd.imgread(s.data(), m_idata.buffer);
                         m_idata.point.set(jpgd.imgparam.width, jpgd.imgparam.height);
                         m_pad = jpgd.imgparam.pad;
@@ -674,10 +707,10 @@ namespace ImageLite
 #                   endif
                 case ImageType::IT_RAW:
                     {
-                        throw_sys_error(error_imgl_format_not_support);
+                        throw_sys_error(error_format_not_support);
                     }
                 default:
-                    throw_sys_error(error_imgl_format_not_support);
+                    throw_sys_error(error_format_not_support);
             }
         }
         catch (std::system_error const & ex_)
@@ -692,19 +725,19 @@ namespace ImageLite
         try
         {
             if ((!w) || (!h))
-                throw_sys_error(error_imgl_size_mismatch);
+                throw_sys_error(error_size_mismatch);
             if (s.empty())
-                throw_sys_error(error_imgl_buffer_empty);
+                throw_sys_error(error_buffer_empty);
 
             std::ifstream f(s.data(), std::ios::binary | std::ios::ate);
             if (!f.is_open())
-                throw_sys_error(error_imgl_file_not_access);
+                throw_sys_error(error_file_not_access);
 
 
             f.seekg (0, std::ios::end);
             std::size_t sz = f.tellg();
             if (!sz)
-                throw_sys_error(error_imgl_file_empty);
+                throw_sys_error(error_file_empty);
 
             f.seekg(0, std::ios::beg);
             m_idata.buffer.resize(sz);
@@ -730,7 +763,7 @@ namespace ImageLite
     void ImageRGBbuffer::save(std::string_view const & s, ImageType t)
     {
         if (!m_idata.buffer.size())
-            throw_sys_error(error_imgl_buffer_empty);
+            throw_sys_error(error_buffer_empty);
 
         if (t == ImageType::IT_NONE)
             t = getimgtype(s);
@@ -756,10 +789,10 @@ namespace ImageLite
                                     ip.x, ip.y, m_idata.stride, m_pad,
                                     nullptr
                                 ))
-                                throw_sys_error(error_imgl_buffer_empty);
+                                throw_sys_error(error_buffer_empty);
 
                             if (!icnvpng.size())
-                                throw_sys_error(error_imgl_bad_size);
+                                throw_sys_error(error_bad_size);
 
                             icnvpng.resize(ip.y * (ip.x * 3));
                         }
@@ -772,10 +805,10 @@ namespace ImageLite
                                         8
                                     );
                         if (err)
-                            throw_sys_error_ex(error_imgl_png_lib_error, lodepng_error_text(err));
+                            throw_sys_error_ex(error_png_lib_error, lodepng_error_text(err));
 
                         if (!dst.size())
-                            throw_sys_error(error_imgl_buffer_empty);
+                            throw_sys_error(error_buffer_empty);
 
                         lodepng::save_file(dst, s.data());
                         break;
@@ -796,10 +829,10 @@ namespace ImageLite
                                     ip.x, ip.y, m_idata.stride, m_pad,
                                     nullptr
                                 ))
-                                throw_sys_error(error_imgl_buffer_empty);
+                                throw_sys_error(error_buffer_empty);
 
                             if (!icnvpng.size())
-                                throw_sys_error(error_imgl_bad_size);
+                                throw_sys_error(error_bad_size);
 
                             icnvpng.resize(ip.y * (ip.x * 3));
                         }
@@ -811,14 +844,14 @@ namespace ImageLite
                                 TooJpeg::inputType::IMGTYPE_RGB,
                                 90
                             ))
-                            throw_sys_error(error_imgl_jpg_lib_error);
+                            throw_sys_error(error_jpg_lib_error);
 
                         if (!dst.size())
-                            throw_sys_error(error_imgl_buffer_empty);
+                            throw_sys_error(error_buffer_empty);
 
                         std::ofstream f(s.data(), std::ios::binary | std::ios::ate);
                         if (!f.is_open())
-                            throw_sys_error(error_imgl_file_not_access);
+                            throw_sys_error(error_file_not_access);
 
                         f.write (reinterpret_cast<const char*>(&dst[0]), dst.size());
                         f.close();
@@ -828,7 +861,7 @@ namespace ImageLite
                     {
                         std::ofstream f(s.data(), std::ios::binary | std::ios::ate);
                         if (!f.is_open())
-                            throw_sys_error(error_imgl_file_not_access);
+                            throw_sys_error(error_file_not_access);
                         f.write (reinterpret_cast<const char*>(&m_idata.buffer[0]), m_idata.buffer.size());
                         f.close();
                         break;
@@ -845,14 +878,14 @@ namespace ImageLite
                                 ip.x, ip.y, m_idata.stride, m_pad,
                                 nullptr
                             ))
-                            throw_sys_error(error_imgl_bmp_not_convertible);
+                            throw_sys_error(error_bmp_not_convertible);
 
                         if (!icnvbmp.size())
-                            throw_sys_error(error_imgl_buffer_empty);
+                            throw_sys_error(error_buffer_empty);
 
                         std::ofstream f(s.data(), std::ios::binary | std::ios::ate);
                         if (!f.is_open())
-                            throw_sys_error(error_imgl_file_not_access);
+                            throw_sys_error(error_file_not_access);
 
                         ImageLite::IBMPHEADER bmph = getbmpfileheader(icnvbmp.size());
                         f.write (reinterpret_cast<const char*>(&bmph), sizeof(bmph));
@@ -865,7 +898,7 @@ namespace ImageLite
                         std::string valname;
                         std::ofstream f(s.data(), std::ios::binary | std::ios::ate);
                         if (!f.is_open())
-                            throw_sys_error(error_imgl_file_not_access);
+                            throw_sys_error(error_file_not_access);
 
                         ImageLite::IPOINT<uint32_t> ip = m_idata.point.get<ImageLite::IPOINT<uint32_t>, uint32_t>();
                         {
@@ -891,14 +924,14 @@ namespace ImageLite
                                 ip.x, ip.y, m_pad,
                                 f
                             ))
-                            throw_sys_error(error_imgl_bmp_not_convertible);
+                            throw_sys_error(error_bmp_not_convertible);
 
                         f << "\t}\n};\nreturn " << valname << "_img\n\n";
                         f.close();
                         break;
                     }
                 default:
-                    throw_sys_error(error_imgl_format_not_support);
+                    throw_sys_error(error_format_not_support);
             }
         }
         catch (std::system_error const & ex_)
